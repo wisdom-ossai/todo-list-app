@@ -3,32 +3,42 @@ import Button from '@material-ui/core/Button';
 import '../style.css'
 
 class TodoList extends React.Component {
-    constructor() {
-        super();
+    newTask;
+    constructor(props) {
+        super(props);
         this.state = {
-            itemsList: []
+            tasksList: []
         }
+
+        this.addTasks = this.addTasks.bind(this);
     }
 
-    addItems($event) {
-        if(this._inputElement.value != '') {
-            const newTodo = {
-                text: this._inputElement.value,
-                key: Date.now() 
+    addTasks(event) {
+        event.preventDefault();
+        if(this._inputElement.value !== '') {
+            this.newTask = {
+                userInput: this._inputElement.value,
+                timeOfInput: Date.now() 
             }
         }
 
-        const newTodos = this.state.concat(newItem)
+        this.setState(prevState => {
+            return {
+                tasksList: prevState.tasksList.concat(this.newTask)
+            }
+        })
 
-        this.setState({items: newTodos})
+        this._inputElement.value = "";
+        console.log(this.state.tasksList); 
+        
     }
     render() {
         return (
             <div className="container">
                 <div className="header">
-                    <form>
-                        <input type="text" placeholder="Enter Todo"/>
-                        <Button type="submit" variant="contained" color="primary">Add</Button>
+                    <form onSubmit={this.addTasks}>
+                        <input type="text" placeholder="Enter Todo" ref={val => this._inputElement = val}/>
+                        <Button type="Submit" variant="contained" color="primary">Add</Button>
                     </form>
                 </div>
                 <TodoItems />
