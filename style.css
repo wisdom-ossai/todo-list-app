@@ -1,13 +1,81 @@
 body {
-    padding: 50px;
     
+    min-width: 280px;
+    padding: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
+    min-width: 280px;
     display: flex;
-    justify-content: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 50px;
     background-color: rgb(119, 236, 164);
     font-size: 1.2rem;
+    width: 50%;
+    margin: auto;
+    box-shadow: 2px 13px 31px -1px rgba(35,125,111,1);
+    border-radius: 5px;
 }
+
+.header, .todoItemContainer {
+    display: inline-block;
+    font-family: "Open Sans", Arial;
+    font-size: 20px;
+    color: #FFF;
+    text-align: center;
+    background: #3794fe;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 12px;
+  }
+  .header {
+    width: 100%;
+  }
+
+  .todoItemContainer {
+    flex: 0 0 auto;
+    width: 95%;
+  }
+
+  .todoItemContainer ul {
+      list-style-type: none;
+      padding: 5px;
+  }
+  .todoItemContainer ul li {
+      color:  rgba(255, 255, 255, 0.8 );
+      padding: 15px;
+      text-align: left;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2 )
+  }
+  .header input {
+      margin: 10px;
+      padding: 10px;
+      border: 0px;
+      color: white;
+      font-size: 20px;
+      background: transparent;
+      border-bottom: 1px solid #b9a8a8;
+  }
+
+  .header input::placeholder {
+      color: white;
+      opacity: 0.7;
+  }
+
+  span.delete-button {
+      color: red;
+      float: right;
+      font-weight: bold;
+      cursor: pointer;
+  }
+
+  li span:hover {
+      background-color: red;
+      border-radius: 50%;
+      color: white;
+      padding: 3px;
+  }

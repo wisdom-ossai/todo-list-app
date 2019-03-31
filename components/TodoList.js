@@ -31,6 +31,16 @@ class TodoList extends React.Component {
         console.log(this.state.tasksList); 
         
     }
+
+    deleteTask(taskKey) {
+
+        console.log(taskKey);
+        this.setState((prevState) => ({
+          ...prevState,
+          tasksList: this.state.tasksList.filter(task => task.timeOfInput !== taskKey)
+        }))
+      }
+
     render() {
         return (
             <div className="container">
@@ -40,7 +50,7 @@ class TodoList extends React.Component {
                         <Button type="Submit" variant="contained" color="primary">Add</Button>
                     </form>
                 </div>
-                <TodoItems inputs={this.state.tasksList} />
+                <TodoItems inputs={this.state.tasksList} deleteTask={this.deleteTask.bind(this)} />
             </div>
         )
     }
