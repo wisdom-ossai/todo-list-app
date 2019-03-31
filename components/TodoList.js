@@ -3,7 +3,6 @@ import Button from '@material-ui/core/Button';
 import '../style.css'
 
 class TodoList extends React.Component {
-    newTask;
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +15,7 @@ class TodoList extends React.Component {
     addTasks(event) {
         event.preventDefault();
         if(this._inputElement.value !== '') {
-            this.newTask = {
+        var newTask = {
                 userInput: this._inputElement.value,
                 timeOfInput: Date.now() 
             }
@@ -24,7 +23,7 @@ class TodoList extends React.Component {
 
         this.setState(prevState => {
             return {
-                tasksList: prevState.tasksList.concat(this.newTask)
+                tasksList: prevState.tasksList.concat(newTask)
             }
         })
 
@@ -41,7 +40,7 @@ class TodoList extends React.Component {
                         <Button type="Submit" variant="contained" color="primary">Add</Button>
                     </form>
                 </div>
-                <TodoItems />
+                <TodoItems inputs={this.state.tasksList} />
             </div>
         )
     }

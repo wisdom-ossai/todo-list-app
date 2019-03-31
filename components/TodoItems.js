@@ -1,10 +1,17 @@
 
 
 class TodoItems extends React.Component {
+    createTasks(task) {
+        return <li key={task.timeOfInput}>{task.userInput}</li> 
+    }
     render() {
+        const tasksInputList = this.props.inputs;
+        const tasksList = tasksInputList.map(this.createTasks);
         return (
             <div className="todoItemContainer">
-                <p>Todo items loading.....</p>
+                <ul>
+                    {tasksList}
+                </ul>
             </div>
         )
     }
