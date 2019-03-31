@@ -1,6 +1,6 @@
 import TodoItems from "./TodoItems";
 import Button from '@material-ui/core/Button';
-import '../style.css'
+import '../style.scss'
 
 class TodoList extends React.Component {
     constructor(props) {
@@ -27,14 +27,10 @@ class TodoList extends React.Component {
             }
         })
 
-        this._inputElement.value = "";
-        console.log(this.state.tasksList); 
-        
+        this._inputElement.value = "";        
     }
 
     deleteTask(taskKey) {
-
-        console.log(taskKey);
         this.setState((prevState) => ({
           ...prevState,
           tasksList: this.state.tasksList.filter(task => task.timeOfInput !== taskKey)

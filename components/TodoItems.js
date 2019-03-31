@@ -1,12 +1,12 @@
 
-
+import FlipMove from "react-flip-move"
 class TodoItems extends React.Component {
     constructor(props) {
         super(props);
         this.createTasks = this.createTasks.bind(this);
     }
     createTasks(task) {
-        return <li key={task.timeOfInput}>{task.userInput}<span className="delete-button" onClick={() => this.props.deleteTask(task.timeOfInput)}>X</span></li> 
+        return <li key={task.timeOfInput}>{task.userInput}<span className="delete-button" onClick={() => this.props.deleteTask(task.timeOfInput)}>x</span></li> 
     }
     render() {
         const tasksInputList = this.props.inputs;
@@ -14,7 +14,9 @@ class TodoItems extends React.Component {
         return (
             <div className="todoItemContainer">
                 <ul>
-                    {tasksList}
+                    <FlipMove easing="ease-out" duration={300}>
+                     {tasksList}
+                    </FlipMove>
                 </ul>
             </div>
         )

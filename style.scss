@@ -1,6 +1,4 @@
 body {
-    
-    min-width: 280px;
     padding: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -11,7 +9,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     padding: 50px;
-    background-color: rgb(119, 236, 164);
+    background-color: rgb(43, 63, 52);
     font-size: 1.2rem;
     width: 50%;
     margin: auto;
@@ -22,7 +20,7 @@ body {
 .header, .todoItemContainer {
     display: inline-block;
     font-family: "Open Sans", Arial;
-    font-size: 20px;
+    font-size: 1.2rem;
     color: #FFF;
     text-align: center;
     background: #3794fe;
@@ -30,8 +28,25 @@ body {
     padding: 20px;
     margin: 12px;
   }
+
   .header {
     width: 100%;
+    input {
+      margin: 10px;
+      padding: 10px;
+      border: 0px;
+      color: white;
+      font-size: 20px;
+      background: transparent;
+      border-bottom: 2px solid white;
+      width: 75%;
+    }
+
+    input::placeholder {
+      color: white;
+      opacity: 0.7;
+    }
+
   }
 
   .todoItemContainer {
@@ -43,39 +58,28 @@ body {
       list-style-type: none;
       padding: 5px;
   }
+
   .todoItemContainer ul li {
       color:  rgba(255, 255, 255, 0.8 );
       padding: 15px;
       text-align: left;
       margin-bottom: 15px;
       border-radius: 5px;
-      background-color: rgba(255, 255, 255, 0.2 )
-  }
-  .header input {
-      margin: 10px;
-      padding: 10px;
-      border: 0px;
-      color: white;
-      font-size: 20px;
-      background: transparent;
-      border-bottom: 1px solid #b9a8a8;
-  }
-
-  .header input::placeholder {
-      color: white;
-      opacity: 0.7;
+      background-color: rgba(255, 255, 255, 0.2 );      
   }
 
   span.delete-button {
-      color: red;
-      float: right;
-      font-weight: bold;
-      cursor: pointer;
+    float: right;
+    color: red;
+    font-weight: bold;
   }
 
-  li span:hover {
-      background-color: red;
-      border-radius: 50%;
-      color: white;
-      padding: 3px;
-  }
+  @media (max-width: 780px) {
+    .container {
+      padding:0;
+    }
+
+    body {
+      padding:0;
+    }
+}
